@@ -2,6 +2,8 @@
 
 Este é um aplicativo de lista de tarefas construído com JavaScript puro, utilizando um módulo personalizado chamado `myReact` que simula o comportamento de `useState` via closures. O projeto é leve, responsivo e persistente — ideal para quem busca produtividade com estilo.
 
+[Clique aqui](https://peixoto1990.github.io/toDoList/) e acesse o WebApp.
+
 ---
 
 ## 🚀 Funcionalidades
@@ -36,6 +38,8 @@ Este é um aplicativo de lista de tarefas construído com JavaScript puro, utili
 3. Abra o projeto no VS Code e clique com o botão direito no index.html → "Open with Live Server"
 
 ⚠️ Importações ES6 (import/export) exigem que o projeto seja servido via HTTP. Abrir o arquivo diretamente (file://) não funcionará.
+
+---
 
 ## 📄 Licença
 
