@@ -36,3 +36,7 @@ Este é um aplicativo de lista de tarefas construído com JavaScript puro, utili
 3. Abra o projeto no VS Code e clique com o botão direito no index.html → "Open with Live Server"
 
 ⚠️ Importações ES6 (import/export) exigem que o projeto seja servido via HTTP. Abrir o arquivo diretamente (file://) não funcionará.
+
+## 📄 Licença
+
+Este projeto está licenciado sob os termos da [MIT License](LICENSE).
