@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    overflow-wrap: anywhere;
+}
+
+:root {
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+
+fieldset, button {
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+ul, li {
+    list-style: none;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        font-size: 16px;
+    }
+}
