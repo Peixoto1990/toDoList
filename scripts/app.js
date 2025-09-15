@@ -2,7 +2,6 @@ import { useState, Task } from "./myReact.js";
 
 const storage = localStorage;
 const [tasks, setTasks] = useState(JSON.parse(storage.getItem("tasks")) || []);
-console.log(tasks());
 
 function startApp() {
     const inputTask = document.getElementById("newTask");
@@ -34,18 +33,43 @@ function newItemElement(task) {
     newItem.appendChild(newFavoriteButton(task));
     newItem.appendChild(newSpanTask(task));
     newItem.appendChild(newDeleteButton(task));
-    newItem.addEventListener("dblclick", testFunction);
+    newItem.addEventListener("dblclick", (ev) => editTask(ev, task));
 
     return newItem;
 }
 
-function testFunction(ev) {
-    console.log(ev);
+function editTask(ev, task) {
     const itemElement = ev.currentTarget;
     const spanElement = itemElement.querySelector("span");
-
+    const spanElementInitialText = spanElement.textContent;
     spanElement.contentEditable = true;
+    spanElement.classList.add("editing-task");
     spanElement.focus();
+
+    function finishEditTask(ev) {
+    if (ev.type === "blur" || ev.code === "Enter") {
+      spanElement.classList.remove("editing-task");
+      spanElement.contentEditable = false;
+      spanElement.blur();
+
+      const newText = spanElement.textContent.trim();
+      if (newText && newText !== task.task) {
+        setTasks(tasks().map((t) =>
+          t.id === task.id ? { ...t, task: newText } : t
+        ));
+        saveData();
+      } else {
+        spanElement.textContent = spanElementInitialText;
+      }
+
+      // Remove os listeners após edição
+      spanElement.removeEventListener("keydown", finishEditTask);
+      spanElement.removeEventListener("blur", finishEditTask);
+    }
+  }
+
+  spanElement.addEventListener("keydown", finishEditTask);
+  spanElement.addEventListener("blur", finishEditTask);
 }
 
 function newFavoriteButton(task) {

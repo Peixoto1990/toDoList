@@ -76,6 +76,18 @@
     animation: pulsar .5s 2 linear;
 }
 
+.editing-task {
+  outline: none;
+  border-bottom: 2px solid #3b82f6; /* azul Tailwind */
+  background-color: #f0f9ff;
+  cursor: text;
+  transition: all 0.2s ease-in-out;
+}
+
+.editing-task:focus {
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
 @keyframes pulsar {
     from {
         transform: scale(1.5);
