@@ -34,8 +34,18 @@ function newItemElement(task) {
     newItem.appendChild(newFavoriteButton(task));
     newItem.appendChild(newSpanTask(task));
     newItem.appendChild(newDeleteButton(task));
+    newItem.addEventListener("dblclick", testFunction);
 
     return newItem;
+}
+
+function testFunction(ev) {
+    console.log(ev);
+    const itemElement = ev.currentTarget;
+    const spanElement = itemElement.querySelector("span");
+
+    spanElement.contentEditable = true;
+    spanElement.focus();
 }
 
 function newFavoriteButton(task) {
